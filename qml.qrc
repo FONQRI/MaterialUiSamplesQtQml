@@ -2,7 +2,6 @@
     <qresource prefix="/">
         <file>main.qml</file>
         <file>TemplateOfMine.qml</file>
-        <file>CirclePageOpen.qml</file>
     </qresource>
     <qresource prefix="/SwitchKey">
         <file>SwitchKey_1.qml</file>
@@ -20,5 +19,6 @@
     <qresource prefix="/menu">
         <file>OpenCircleMenu.qml</file>
         <file>FloatMenu_1.qml</file>
+        <file>CirclePageOpen.qml</file>
     </qresource>
 </RCC>
