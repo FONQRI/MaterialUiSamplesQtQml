@@ -1,0 +1,24 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>TemplateOfMine.qml</file>
+        <file>CirclePageOpen.qml</file>
+    </qresource>
+    <qresource prefix="/SwitchKey">
+        <file>SwitchKey_1.qml</file>
+        <file>SwitchKey_2.qml</file>
+        <file>SwitchKey_3.qml</file>
+        <file>SwitchKey_4.qml</file>
+    </qresource>
+    <qresource prefix="/loading">
+        <file>Loading_1.qml</file>
+        <file>Loading_2.qml</file>
+        <file>Loading_3.qml</file>
+        <file>Loading_4.qml</file>
+        <file>Loading_5.qml</file>
+    </qresource>
+    <qresource prefix="/menu">
+        <file>OpenCircleMenu.qml</file>
+        <file>FloatMenu_1.qml</file>
+    </qresource>
+</RCC>
