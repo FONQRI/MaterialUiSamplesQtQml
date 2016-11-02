@@ -28,7 +28,7 @@ function stop(){
 }
     Rectangle{
         id:topRec
-        color:Material.color(Material.Blue)
+        color:"#2196F3"
 
         width: loadingSize
         height: width
@@ -77,7 +77,7 @@ function stop(){
 
     Rectangle{
         id:underrec
-        color:Material.color(Material.Blue)
+        color:"#2196F3"
         opacity: 0.3
         width: loadingSize - loadingSize/5
         height: width

@@ -189,7 +189,7 @@ onStopped: {
 
         width: 50
         height: width
-        color:Material.color(Material.Blue)
+        color:"#2196F3"
         antialiasing: true
         radius: width/2
         MouseArea{
@@ -210,7 +210,7 @@ onStopped: {
         y:yposition  -1 +70
         width: 50
         height: width
-        color:Material.color(Material.Red)
+        color:"#F44336"
         antialiasing: true
         radius: width/2
         MouseArea{

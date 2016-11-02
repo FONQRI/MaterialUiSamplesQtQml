@@ -98,7 +98,7 @@ Item {
     }
 
     SequentialAnimation {
-        id: stopAnimationBlueToEnd
+        id: stopAnimationYellowToEnd
 
         running: false
         alwaysRunToEnd: true
@@ -109,7 +109,7 @@ Item {
             target: yellowRect;
             property:"width"
             to: root.height*2
-            duration: 5000
+            duration: 3000
             running: false
         }
         onStopped: {
@@ -129,7 +129,7 @@ onStopped: {
     underrec.opacity=0
     underanimation.stop()
     topanimeYellow.stop()
-    stopAnimationBlueToEnd.start()
+    stopAnimationYellowToEnd.start()
 
 }
 

@@ -36,20 +36,18 @@ ApplicationWindow {
 
 //        TemplateOfMine{
 //        }
-    //    FloatMenu_1{
 
-    //    }
-            Loading_5{
-onFinished: {
-    console.log("down...")
-}
-            }
-//            OpenCircleMenu{
+//            Loading_5{
+//onFinished: {
+//    console.log("down...")
+//}
+           // }
+//            CirclePageOpen{
 
 //            }
 
 
-//        SwitchKey_4{
+        SwitchKey_4{
 
-//        }
+        }
 }

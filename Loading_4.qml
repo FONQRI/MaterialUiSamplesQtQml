@@ -367,7 +367,7 @@ yellowextend.start()
 
         width: circleSize/3
         height: width
-        color:Material.color(Material.Green)
+        color:"#4CAF50"
         antialiasing: true
         radius: width/2
 
