@@ -37,17 +37,17 @@ ApplicationWindow {
 //        TemplateOfMine{
 //        }
 
-//            Loading_5{
-//onFinished: {
-//    console.log("down...")
-//}
-           // }
+            Loading_5{
+onFinished: {
+    console.log("Finished...")
+}
+            }
 //            CirclePageOpen{
 
 //            }
 
 
-        SwitchKey_4{
+//        SwitchKey_4{
 
-        }
+//        }
 }
