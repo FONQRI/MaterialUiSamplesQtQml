@@ -1,6 +1,5 @@
 import QtQuick 2.7
 import QtQuick.Controls 2.0
-import QtQuick.Controls.Material 2.0
 Item {
     anchors.fill: parent
     id:root
@@ -17,7 +16,7 @@ anchors.centerIn: parent
 width:0
 height: width
 radius: width/2
-color:switchState?Material.color(Material.Blue):"white"
+color:switchState?"#2196F3":"white"
 
 
 NumberAnimation{
@@ -31,7 +30,7 @@ to :root.height*2
 duration: 1400
 onStopped:
 {
-    backgroundRect.color=switchState?Material.color(Material.Blue):"white"
+    backgroundRect.color=switchState?"#2196F3":"white"
     tempRect.opacity=0
     downAnim=true
 
@@ -45,14 +44,14 @@ onStopped:
             width: (parent.width*2)/5
             height: (parent.height)/10
             radius: width/2
-            color:Material.color(Material.Grey)
+            color:"#9E9E9E"
 
             ColorAnimation on color{
                 id:colorsubAnim
                 alwaysRunToEnd: true
 
                 running:false
-                to: !switchState?Material.color(Material.Green):Material.color(Material.Grey)
+                to: !switchState?"#4CAF50":"#9E9E9E"
                 duration: 500
             }
 
@@ -71,7 +70,7 @@ onStopped:
                     alwaysRunToEnd: true
 
                     running:false
-                    to:!switchState? Material.color(Material.Yellow) :"gray"
+                    to:!switchState? "#FFEB3B":"gray"
                     duration: 700
                 }
                 NumberAnimation{

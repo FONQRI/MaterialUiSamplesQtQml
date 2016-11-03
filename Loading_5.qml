@@ -1,6 +1,5 @@
 import QtQuick 2.7
 import QtQuick.Controls 2.0
-import QtQuick.Controls.Material 2.0
 import QtQml 2.2
 Item {
     anchors.fill: parent
@@ -52,7 +51,7 @@ Item {
 
         Rectangle{
             id:first
-            color:Material.color(Material.Blue)
+            color:"#2196F3"
             width: root.width/7
             height: width
             radius: width/2
@@ -100,7 +99,7 @@ Item {
 
         Rectangle{
             id:second
-            color:Material.color(Material.Blue)
+            color:"#2196F3"
             width: root.width/7
             height: width
             radius: width/2
@@ -146,7 +145,7 @@ Item {
         //thered Rectangle *********************************************
         Rectangle{
             id:thered
-            color:Material.color(Material.Blue)
+            color:"#2196F3"
             width: root.width/7
             height: width
             radius: width/2

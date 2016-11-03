@@ -3,13 +3,11 @@ import QtQuick.Controls 2.0
 import QtQuick.Layouts 1.0
 import QtQuick.Window 2.0
 import QtQuick.Controls 2.0
-import QtQuick.Controls.Material 2.0
 import "SwitchKey"
 import "loading"
 import "menu"
 ApplicationWindow {
-    Material.theme:Material.Dark
-    Material.foreground:"#ffffff"
+
 
     visible: true
     flags: Screen.width > Screen.height ?   Qt.NoItemFlags :Qt.FramelessWindowHint
@@ -37,7 +35,7 @@ ApplicationWindow {
 //        TemplateOfMine{
 //        }
 
-            Loading_5{
+            Loading_4{
 onFinished: {
     console.log("Finished...")
 }

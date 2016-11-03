@@ -1,5 +1,4 @@
 import QtQuick 2.0
-import QtQuick.Controls.Material 2.0
 Item {
     anchors.fill: parent
     visible: true
