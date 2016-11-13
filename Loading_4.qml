@@ -1,11 +1,9 @@
 import QtQuick 2.7
 import QtQuick.Controls 2.0
-import QtQuick.Controls.Material 2.0
 Rectangle {
     anchors.fill: parent
     color:"#263238"
     id:root
-Material.theme: Material.Dark
     property int xposition: root.width/2 - 25
     property int yposition: root.height/2 - 25
     property int circleSize: 50
@@ -368,7 +366,7 @@ yellowextend.start()
 
         width: circleSize/3
         height: width
-        color:Material.color(Material.Green)
+        color:"#4CAF50"
         antialiasing: true
         radius: width/2
 

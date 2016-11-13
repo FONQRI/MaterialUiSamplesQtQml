@@ -3,13 +3,11 @@ import QtQuick.Controls 2.0
 import QtQuick.Layouts 1.0
 import QtQuick.Window 2.0
 import QtQuick.Controls 1.4
-import QtQuick.Controls.Material 2.0
 import "SwitchKey"
 import "loading"
 import "menu"
 ApplicationWindow {
 
-    Material.theme:Material.dark
     visible: true
     flags: Screen.width > Screen.height ?   Qt.NoItemFlags :Qt.FramelessWindowHint
     width: Screen.width > Screen.height ? 480:Screen.width
@@ -40,12 +38,6 @@ ApplicationWindow {
     Component{
         id:cpo
         CirclePageOpen{
-
-
-
-
-
-
 
             onFinished: {
                 //myload.sourceComponent=cpo
@@ -200,11 +192,5 @@ ApplicationWindow {
 
     }
 
-    //        SwitchKey_4{
 
-    //        }
-
-    //       Login_1{
-
-    //       }
 }
