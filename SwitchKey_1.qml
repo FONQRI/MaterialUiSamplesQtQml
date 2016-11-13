@@ -1,10 +1,13 @@
 import QtQuick 2.7
 import QtQuick.Controls 2.0
+import QtQuick.Controls.Material 2.0
 Item {
     anchors.fill: parent
     id:root
     property bool switchState: false
     property bool downAnim: true
+    property int  times: 0
+    signal finished()
     Rectangle{
         id:backgroundRect
         anchors.fill: parent
@@ -12,31 +15,33 @@ Item {
 
         Rectangle{
             id:tempRect
-anchors.centerIn: parent
-width:0
-height: width
-radius: width/2
-color:switchState?"#2196F3":"white"
+            anchors.centerIn: parent
+            width:0
+            height: width
+            radius: width/2
+            color:switchState?Material.color(Material.Blue):"white"
 
 
-NumberAnimation{
-target: tempRect
-id:changeBackground
-alwaysRunToEnd: true
-property:"width"
-running: false
-from:0
-to :root.height*2
-duration: 1400
-onStopped:
-{
-    backgroundRect.color=switchState?"#2196F3":"white"
-    tempRect.opacity=0
-    downAnim=true
+            NumberAnimation{
+                target: tempRect
+                id:changeBackground
+                alwaysRunToEnd: true
+                property:"width"
+                running: false
+                from:0
+                to :root.height*2
+                duration: 1400
+                onStopped:
+                {
+                    backgroundRect.color=switchState?Material.color(Material.Blue):"white"
+                    tempRect.opacity=0
+                    downAnim=true
 
-
-}
-}
+                    times++
+                    if(times>3)
+                        finished()
+                }
+            }
         }
         Rectangle{
             id:subRect
@@ -44,14 +49,14 @@ onStopped:
             width: (parent.width*2)/5
             height: (parent.height)/10
             radius: width/2
-            color:"#9E9E9E"
+            color:Material.color(Material.Grey)
 
             ColorAnimation on color{
                 id:colorsubAnim
                 alwaysRunToEnd: true
 
                 running:false
-                to: !switchState?"#4CAF50":"#9E9E9E"
+                to: !switchState?Material.color(Material.Green):Material.color(Material.Grey)
                 duration: 500
             }
 
@@ -70,7 +75,7 @@ onStopped:
                     alwaysRunToEnd: true
 
                     running:false
-                    to:!switchState? "#FFEB3B":"gray"
+                    to:!switchState? Material.color(Material.Yellow) :"gray"
                     duration: 700
                 }
                 NumberAnimation{
@@ -108,12 +113,12 @@ onStopped:
                 onClicked: {
                     if(switchState && downAnim){
                         downAnim=false
-                    moveAnimation.start()
-                    colorsubAnim.start()
-                    colorswitchAnim.start()
-                    changeWidth.start()
-                    tempRect.opacity=true
-                    changeBackground.start()
+                        moveAnimation.start()
+                        colorsubAnim.start()
+                        colorswitchAnim.start()
+                        changeWidth.start()
+                        tempRect.opacity=true
+                        changeBackground.start()
 
                         switchState=false
                     }

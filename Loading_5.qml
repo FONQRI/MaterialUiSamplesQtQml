@@ -1,5 +1,6 @@
 import QtQuick 2.7
 import QtQuick.Controls 2.0
+import QtQuick.Controls.Material 2.0
 import QtQml 2.2
 Item {
     anchors.fill: parent
@@ -51,7 +52,7 @@ Item {
 
         Rectangle{
             id:first
-            color:"#2196F3"
+            color:Material.color(Material.Blue)
             width: root.width/7
             height: width
             radius: width/2
@@ -99,7 +100,7 @@ Item {
 
         Rectangle{
             id:second
-            color:"#2196F3"
+            color:Material.color(Material.Blue)
             width: root.width/7
             height: width
             radius: width/2
@@ -145,7 +146,7 @@ Item {
         //thered Rectangle *********************************************
         Rectangle{
             id:thered
-            color:"#2196F3"
+            color:Material.color(Material.Blue)
             width: root.width/7
             height: width
             radius: width/2
@@ -221,7 +222,7 @@ Item {
             running: false
             id: finalAnimThered
             alwaysRunToEnd: true
-
+            onStopped: finished()
             PathAnimation {
 
                 duration: 5000
@@ -260,40 +261,40 @@ Item {
             running: false
             id: finishAll
             alwaysRunToEnd: true
-        NumberAnimation {
-            target: second
-            running: false
-            property: "width"
-            to:root.height*2
-            duration: 2500
-            easing.type: Easing.InOutQuad
+            NumberAnimation {
+                target: second
+                running: false
+                property: "width"
+                to:root.height*2
+                duration: 2500
+                easing.type: Easing.InOutQuad
 
-        }
-        NumberAnimation{
-          target: first
-          running: false
-          property: "opacity"
-          to:0
-          duration: 10
+            }
+            NumberAnimation{
+                target: first
+                running: false
+                property: "opacity"
+                to:0
+                duration: 10
 
-        }
+            }
 
-        NumberAnimation{
-          target: thered
-          running: false
-          property: "opacity"
-          to:0
-          duration: 10
+            NumberAnimation{
+                target: thered
+                running: false
+                property: "opacity"
+                to:0
+                duration: 10
 
-        }
-        NumberAnimation{
-          target: second
-          running: false
-          property: "opacity"
-          to:0
-          duration: 2500
+            }
+            NumberAnimation{
+                target: second
+                running: false
+                property: "opacity"
+                to:0
+                duration: 2500
 
-        }
+            }
             onStarted: second.anchors.centerIn=backgroundRect
         }
     }

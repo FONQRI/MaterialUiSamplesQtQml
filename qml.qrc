@@ -18,5 +18,8 @@
     </qresource>
     <qresource prefix="/menu">
         <file>OpenCircleMenu.qml</file>
+        <file>ColorMenuChange.qml</file>
+        <file>CirclePageOpen.qml</file>
+        <file>FloatPage.qml</file>
     </qresource>
 </RCC>

@@ -1,9 +1,11 @@
 import QtQuick 2.7
 import QtQuick.Controls 2.0
-Item {
+import QtQuick.Controls.Material 2.0
+Rectangle {
     anchors.fill: parent
+    color:"#263238"
     id:root
-
+Material.theme: Material.Dark
     property int xposition: root.width/2 - 25
     property int yposition: root.height/2 - 25
     property int circleSize: 50
@@ -42,7 +44,7 @@ Item {
 
             target: blueRect
             orientation: PathAnimation.RightFirst
-            anchorPoint: Qt.point(root.width/2,root.height/2)
+            //anchorPoint: Qt.point(root.width/2,root.height/2)
             path:Path {
                 startX:xposition - 100
                 startY:yposition- 100
@@ -71,7 +73,7 @@ Item {
             duration: speed*6
 
             target: redRect
-            anchorPoint: Qt.point(root.width/2,root.height/2)
+            //anchorPoint: Qt.point(root.width/2,root.height/2)
 
             path:Path {
                 startX:xposition  +75
@@ -107,7 +109,7 @@ Item {
 
             target: greenRect
             //orientation: PathAnimation.BottomFirst
-            anchorPoint: Qt.point(root.width/2,root.height/2)
+            //anchorPoint: Qt.point(root.width/2,root.height/2)
             path:Path {
                 startX:xposition  - 25
                 startY:yposition   - 25
@@ -366,7 +368,7 @@ yellowextend.start()
 
         width: circleSize/3
         height: width
-        color:"#4CAF50"
+        color:Material.color(Material.Green)
         antialiasing: true
         radius: width/2
 

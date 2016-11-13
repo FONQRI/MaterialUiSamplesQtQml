@@ -1,10 +1,10 @@
 import QtQuick 2.0
+import QtQuick.Controls.Material 2.0
 Item {
     anchors.fill: parent
     visible: true
     id:root
-    property int loadingSize: parent.width>parent.height?(parent.height/5)*2:(parent.width/5)*2
-    property bool startLoad:false
+    property int loadingSize: root.width>root.height?(root.height/5)*2:(root.width/5)*2
 
 signal finished()
 
@@ -13,7 +13,6 @@ function start(){
 
     topanimeStart.start()
     underanimationStart.start()
-    startLoad=true
 }
 
 function stop(){
@@ -22,25 +21,22 @@ function stop(){
     underanimationStart.stop()
     stopLoading.start()
     opacityUnderRect.start()
-    startLoad=false
 
 }
     Rectangle{
         id:topRec
-        color:"#2196F3"
+        color:Material.color(Material.Blue)
 
         width: loadingSize
         height: width
         radius: width/2
-        anchors.centerIn: parent
+        anchors.centerIn: root
         MouseArea{
             anchors.fill :parent
             onClicked:
             {
-                if(startLoad)
-                    stop()
-                else
-                start()
+
+                stop()
 
             }
 
@@ -48,7 +44,7 @@ function stop(){
         SequentialAnimation on width{
             id:topanimeStart
             loops: Animation.Infinite
-            running: false
+            running: true
             alwaysRunToEnd: true
             NumberAnimation { from: loadingSize; to: loadingSize - loadingSize/5; duration: 1500; easing.type: Easing.InOutQuad }
             NumberAnimation { from: loadingSize - loadingSize/5; to: loadingSize; duration: 1500; easing.type: Easing.InOutQuad }
@@ -59,7 +55,7 @@ function stop(){
             running: false
             alwaysRunToEnd: true
             NumberAnimation{to: 0;duration: 1500}
-            NumberAnimation{to: parent.height*2;duration: 3000}
+            NumberAnimation{to: root.height*2;duration: 3000}
             NumberAnimation{
                 target:topRec
                 property: "opacity"
@@ -76,7 +72,7 @@ function stop(){
 
     Rectangle{
         id:underrec
-        color:"#2196F3"
+        color:Material.color(Material.Blue)
         opacity: 0.3
         width: loadingSize - loadingSize/5
         height: width
@@ -93,7 +89,7 @@ function stop(){
         SequentialAnimation on width{
             id:underanimationStart
             loops: Animation.Infinite
-            running: false
+            running: true
             alwaysRunToEnd: true
 
             NumberAnimation { from: loadingSize - loadingSize/5; to: loadingSize; duration: 1500; easing.type: Easing.InOutQuad }

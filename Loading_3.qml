@@ -14,6 +14,7 @@ Item {
     function start(){
         pathAnimBlue.start()
         pathAnimRed.start()
+        console.log(xposition)
     }
     function stop(){
         pathAnimBlue.stop()
@@ -25,19 +26,21 @@ Item {
     SequentialAnimation {
         running: true
         loops: -1
+        id: pathAnimBlue
 
         PauseAnimation { duration: 10 }
         //! [0]
         PathAnimation {
-            id: pathAnimBlue
 
             duration: speed*3
             easing.type: Easing.InQuad
 
             target: blueRect
             orientation: PathAnimation.RightFirst
-            anchorPoint: Qt.point(root.width/2,root.height/2)
+           // anchorPoint: Qt.point(root.width/2,root.height/2)
             path:Path {
+
+
                 startX:xposition - 75
                 startY:yposition- 75
 
@@ -56,18 +59,18 @@ Item {
     SequentialAnimation {
         running: true
         loops: -1
+        id: pathAnimRed
 
         PauseAnimation { duration: 10 }
         //! [0]
         PathAnimation {
-            id: pathAnimRed
 
             duration: speed*3
             easing.type: Easing.InQuad
-
+            running: false
             target: redRect
             //orientation: PathAnimation.BottomFirst
-            anchorPoint: Qt.point(root.width/2,root.height/2)
+            //anchorPoint: Qt.point(root.width/2,root.height/2)
             path:Path {
                 startX:xposition  +70
                 startY:yposition  +70
@@ -98,7 +101,7 @@ Item {
     }
 
     SequentialAnimation {
-        id: stopAnimationYellowToEnd
+        id: stopAnimationBlueToEnd
 
         running: false
         alwaysRunToEnd: true
@@ -109,7 +112,7 @@ Item {
             target: yellowRect;
             property:"width"
             to: root.height*2
-            duration: 3000
+            duration: 5000
             running: false
         }
         onStopped: {
@@ -119,19 +122,19 @@ Item {
 
     SequentialAnimation {
         id: stopAnimationBlue
-onStopped: {
+        onStopped: {
 
-    blueRect.anchors.centerIn=root
-    blueRect.z=1
-    redRect.z=0
-      redRect.opacity=0
-    blueRect.opacity=0
-    underrec.opacity=0
-    underanimation.stop()
-    topanimeYellow.stop()
-    stopAnimationYellowToEnd.start()
+            blueRect.anchors.centerIn=root
+            blueRect.z=1
+            redRect.z=0
+            redRect.opacity=0
+            blueRect.opacity=0
+            underrec.opacity=0
+            underanimation.stop()
+            topanimeYellow.stop()
+            stopAnimationBlueToEnd.start()
 
-}
+        }
 
         running: false
         alwaysRunToEnd: true
@@ -183,7 +186,6 @@ onStopped: {
                 }
             }
         }
-        //! [0]
     }
 
 
@@ -201,7 +203,7 @@ onStopped: {
             anchors.fill: parent
             onClicked:{
 
-stop()
+                stop()
             }
 
 
@@ -228,7 +230,8 @@ stop()
 
 
 
-
+            x:xposition - 75
+            y:yposition - 75
 
 
             SequentialAnimation on width {
@@ -252,6 +255,10 @@ stop()
         color:"#2196F3"
         antialiasing: true
         radius: width/2
+        MouseArea{
+            anchors.fill: parent
+            onClicked: start()
+        }
 
     }
 

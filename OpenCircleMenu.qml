@@ -6,7 +6,7 @@ Item{
     anchors.fill: parent
     property bool button_menu: true
     property bool openning: false
-
+signal finished()
 
     id:root
 
@@ -119,6 +119,10 @@ Text{
     height: 50
     x: -100
     y:(root.height/10)*2
+    MouseArea{
+        anchors.fill: parent
+        onClicked: finished()
+    }
 }
 
 Text{

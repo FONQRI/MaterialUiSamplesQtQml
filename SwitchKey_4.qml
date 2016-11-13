@@ -1,11 +1,14 @@
 
 import QtQuick 2.7
 import QtQuick.Controls 2.0
+import QtQuick.Controls.Material 2.0
 Item {
     anchors.fill: parent
     id:root
     property bool switchState: false
     property bool downAnim: true
+    property int  times: 0
+    signal finished()
     Rectangle{
         id:backgroundRect
         anchors.fill: parent
@@ -17,7 +20,7 @@ anchors.centerIn: parent
 width:0
 height: width
 radius: width/2
-color:switchState?"#2196F3":"white"
+color:switchState?Material.color(Material.Blue):"white"
 
 
 NumberAnimation{
@@ -31,11 +34,13 @@ to :root.height*2
 duration: 1400
 onStopped:
 {
-    backgroundRect.color=switchState?"#2196F3":"white"
+    backgroundRect.color=switchState?Material.color(Material.Blue):"white"
     tempRect.opacity=0
     downAnim=true
 
-
+    times++
+    if(times>3)
+        finished()
 }
 }
         }
@@ -45,14 +50,14 @@ onStopped:
             width: (parent.width*2)/5
             height: (parent.height)/20
             radius: width/2
-            color:"#2196F3"
+            color:Material.color(Material.Blue)
 
             ColorAnimation on color{
                 id:colorsubAnim
                 alwaysRunToEnd: true
 
                 running:false
-                to: !switchState?"white":"#2196F3"
+                to: !switchState?"white":Material.color(Material.Blue)
                 duration: 500
             }
 
@@ -65,7 +70,7 @@ onStopped:
                 width: (backgroundRect.height*1.5)/20
                 height: width
                 radius: width/2
-                color:"#FFEB3B"
+                color:Material.color(Material.Yellow)
 
                 NumberAnimation{
                     id:moveAnimation
